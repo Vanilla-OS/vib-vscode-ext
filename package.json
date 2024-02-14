@@ -1,9 +1,9 @@
 {
   "name": "vib",
   "displayName": "Vib",
-  "description": "Streamline your Vib recipe development with syntax highlighting, IntelliSense, and auto-formatting in VSCode",
+  "description": "Support for Vib",
   "icon": "icon.png",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "publisher": "fabricators",
   "repository": "https://github.com/Vanilla-OS/vib-vscode-ext",
   "engines": {
