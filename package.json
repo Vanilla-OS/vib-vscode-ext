@@ -1,6 +1,6 @@
 {
-  "name": "vib-ext",
-  "displayName": "vib-ext",
+  "name": "vib",
+  "displayName": "Vib",
   "description": "Streamline your Vib recipe development with syntax highlighting, IntelliSense, and auto-formatting in VSCode",
   "icon": "icon.png",
   "version": "0.0.1",
