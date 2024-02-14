@@ -4,7 +4,7 @@
   "description": "Streamline your Vib recipe development with syntax highlighting, IntelliSense, and auto-formatting in VSCode",
   "icon": "icon.png",
   "version": "0.0.1",
-  "publisher": "Vanilla OS Contributors",
+  "publisher": "fabricators",
   "repository": "https://github.com/Vanilla-OS/vib-vscode-ext",
   "engines": {
     "vscode": "^1.86.0"
