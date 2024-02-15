@@ -29,9 +29,15 @@ export function registerValidators(context: vscode.ExtensionContext) {
 
         let allDiagnostics: vscode.Diagnostic[] = [];
 
-        let metadataResults = VCheckMetadata(document, parsedYAML);
-        allDiagnostics = allDiagnostics.concat(metadataResults.diagnostics);
-        metadataResults.actions.forEach((value, key) => globalActions.set(key, value));
+        // Metadata validation
+        let results = VCheckMetadata(document, parsedYAML);
+        allDiagnostics = allDiagnostics.concat(results.diagnostics);
+        results.actions.forEach((value, key) => globalActions.set(key, value));
+
+        // Includes validation
+        results = VCheckIncludes(document, parsedYAML);
+        allDiagnostics = allDiagnostics.concat(results.diagnostics);
+        results.actions.forEach((value, key) => globalActions.set(key, value));
 
         diagnostics.set(document.uri, allDiagnostics);
     };
