@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 import * as yaml from 'js-yaml';
 import { VCheckIncludes } from './checkIncludes';
 import { VCheckMetadata } from './checkMetadata';
+import { VCheckDuplicateModuleNames } from './checkDuplicateMouleNames';
 
 /**
  * Registers the validators for the VIB recipe files.
@@ -36,6 +37,11 @@ export function registerValidators(context: vscode.ExtensionContext) {
 
         // Includes validation
         results = VCheckIncludes(document, parsedYAML);
+        allDiagnostics = allDiagnostics.concat(results.diagnostics);
+        results.actions.forEach((value, key) => globalActions.set(key, value));
+
+        // Duplicate module names validation
+        results = VCheckDuplicateModuleNames(document, parsedYAML);
         allDiagnostics = allDiagnostics.concat(results.diagnostics);
         results.actions.forEach((value, key) => globalActions.set(key, value));
 
