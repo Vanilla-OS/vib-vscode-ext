@@ -23,7 +23,7 @@ export function registerValidators(context: vscode.ExtensionContext) {
         try {
             parsedYAML = yaml.load(document.getText());
         } catch (e) {
-            vscode.window.showErrorMessage(`Error parsing YAML: ${(e as Error).message}`);
+            // console.error(e);
             return;
         }
 
