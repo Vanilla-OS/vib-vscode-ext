@@ -18,3 +18,12 @@ export function createDiagnostic(
     const range = new vscode.Range(startLine, 0, endLine, 0);
     return new vscode.Diagnostic(range, message, severity);
 }
+
+
+export function createAddKeyAction(document: vscode.TextDocument, key: string, value: string): vscode.CodeAction {
+    const action = new vscode.CodeAction(`Add "${key}"`, vscode.CodeActionKind.QuickFix);
+    action.edit = new vscode.WorkspaceEdit();
+    const position = new vscode.Position(1, 0);
+    action.edit.insert(document.uri, position, `${key}: ${value}\n`);
+    return action;
+}

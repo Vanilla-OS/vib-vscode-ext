@@ -8,8 +8,9 @@ import { checkWorkPathExistsWithExts } from '../utils/pathUtils';
  * @param parsedYAML The parsed YAML document.
  * @returns An array of vscode.Diagnostic objects.
  */
-export function VCheckIncludes(document: vscode.TextDocument, parsedYAML: any): vscode.Diagnostic[] {
+export function VCheckIncludes(document: vscode.TextDocument, parsedYAML: any): { diagnostics: vscode.Diagnostic[], actions: Map<string, (document: vscode.TextDocument, diagnostic: vscode.Diagnostic) => vscode.CodeAction> } {
     let diagnosticArray: vscode.Diagnostic[] = [];
+    let actions = new Map<string, (document: vscode.TextDocument, diagnostic: vscode.Diagnostic) => vscode.CodeAction>();
     const text = document.getText();
 
     if (parsedYAML && typeof parsedYAML === 'object' && 'modules' in parsedYAML) {
@@ -32,5 +33,5 @@ export function VCheckIncludes(document: vscode.TextDocument, parsedYAML: any): 
         }
     }
 
-    return diagnosticArray;
+    return { diagnostics: diagnosticArray, actions };
 }
