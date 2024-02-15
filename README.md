@@ -4,5 +4,8 @@ This extension provides basic functionality to work with Vib recipes in Visual S
 
 ## Features
 
-- Error checking for metadata
-- Path validation for `includes` modules
+Please refer to the [documentation](https://docs.vanillaos.org/vib/en/vscode-extension) for a list of features.
+
+## Installation & Usage
+
+Please refer to the [documentation](https://docs.vanillaos.org/vib/en/vscode-extension) for installation and usage instructions.
